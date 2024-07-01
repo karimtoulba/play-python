@@ -12,7 +12,7 @@ while readiness_checker == "yes":
 
     try: 
         student_firstname = str(input("Please enter student firt name: "))
-        student_lastname = str(input("Please enter student firt name: "))
+        student_lastname = str(input("Please enter student last name: "))
         student_id = input("Please enter student ID: ")
     except ValueError:
         print ("The entered value is not correct")
@@ -42,3 +42,44 @@ while readiness_checker == "yes":
 
     login_name = part1 + part2 + part3
     print("The student login name is: {}".format(login_name))
+
+# Request Password from User
+
+    while len(login_name) > 1:
+
+        login_password = input("Please create a new password: ")
+
+# Validate the password if correct according to requirements
+# The password must be at least seven characters long.
+# It must contain at least one uppercase letter. 
+# It must contain at least one lowercase letter.
+# It must contain at least one numeric digit. 
+
+        is_valid = False
+        has_upper = False
+        has_lower = False
+        has_digit = False
+
+        if len(login_password) >= 7:
+            is_valid = True
+    
+        for character in login_password:
+            if character.isupper():
+                has_upper = True
+            if character.islower():
+                has_lower = True
+            if character.isdigit():
+                has_digit = True
+
+#print the login_name and password and start over
+        
+        if is_valid and has_upper and has_lower and has_digit:
+            print("You've successfully set a password")
+            print("Your login name is: {}".format(login_name))
+            print("Your login password is: {}".format(login_password))
+            break
+
+        if is_valid == False or has_upper == False or has_lower == False or has_digit == False:
+            print("Password is not correct. Please try again!")
+
+            
